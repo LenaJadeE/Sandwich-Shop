@@ -13,7 +13,7 @@ public class SandwichShop{
         System.out.println("Select a sandwich size (1 = Regular, 2 = Large): ");
         int sandwichSize = scanner.nextInt();
 
-        double basePrice;
+        double basePrice = 0.00;
 
         if (sandwichSize == 1) {
             basePrice = 5.45;
@@ -22,25 +22,8 @@ public class SandwichShop{
         } else {
             System.out.println("Invalid size. Please run the program again and enter 1 or 2 ");
             scanner.close();
-
+            return;
         }
-
-
-        // Prompts the user if they would like the sandwich loaded (yes/no)
-        // If so There is an additional cost for a loaded sandwich
-        // 1: Regular: $1.00
-        // 2: Large: $1.75
-        double loadedCost;
-
-        if (sandwichSize == 1) {
-            basePrice = 5.45;
-            loadedCost = 1.00;
-        } else if (sandwichSize == 2) {
-            basePrice = 8.95;
-            loadedCost = 1.75;
-        } else {
-            System.out.println("Invalid size. Please run the program again and enter 1 or 2.");
-            scanner.close();
 
             // Prompt the user for their age:
             // 1: Student (17 years or younger) - receives a 10% discount
@@ -49,7 +32,7 @@ public class SandwichShop{
             System.out.println("Enter your age: ");
             int customerAge = scanner.nextInt();
 
-            double discountRate;
+            double discountRate = 0;
 
             if (customerAge <= 17) {
                 discountRate = 0.10;
@@ -62,7 +45,7 @@ public class SandwichShop{
             double discountAmount = basePrice * discountRate;
             double totalPrice = basePrice - discountAmount;
 
-            System.out.println("Your sandwich cost is $" + totalPrice);
+            System.out.printf("Your sandwich cost is $%.2f", totalPrice);
 
             scanner.close();
 
@@ -73,4 +56,4 @@ public class SandwichShop{
 
         }
     }
-}
+
