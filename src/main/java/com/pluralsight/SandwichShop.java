@@ -2,7 +2,7 @@ package com.pluralsight;
 
 import java.util.Scanner;
 
-public class SandwichShop {
+public class SandwichShop{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,7 +22,7 @@ public class SandwichShop {
         } else {
             System.out.println("Invalid size. Please run the program again and enter 1 or 2 ");
             scanner.close();
-            return;
+
         }
 
 
@@ -30,40 +30,47 @@ public class SandwichShop {
         // If so There is an additional cost for a loaded sandwich
         // 1: Regular: $1.00
         // 2: Large: $1.75
-        System.out.println("Enter your age: ");
-        int cusomerAge = scanner.nextInt();
+        double loadedCost;
 
-        double discountRate;
+        if (sandwichSize == 1) {
+            basePrice = 5.45;
+            loadedCost = 1.00;
+        } else if (sandwichSize == 2) {
+            basePrice = 8.95;
+            loadedCost = 1.75;
+        } else {
+            System.out.println("Invalid size. Please run the program again and enter 1 or 2.");
+            scanner.close();
 
-        if (cusomerAge <= 17) {
+            // Prompt the user for their age:
+            // 1: Student (17 years or younger) - receives a 10% discount
+            // 2: Seniors (65 years or older) - receives a 20% discount
+            // Display the cost of the sandwich on the screen
+            System.out.println("Enter your age: ");
+            int customerAge = scanner.nextInt();
+
+            double discountRate;
+
+            if (customerAge <= 17) {
+                discountRate = 0.10;
+            } else if (customerAge >= 65) {
+                discountRate = 0.20;
+            } else {
+                discountRate = 0;
+            }
+
+            double discountAmount = basePrice * discountRate;
+            double totalPrice = basePrice - discountAmount;
+
+            System.out.println("Your sandwich cost is $" + totalPrice);
+
+            scanner.close();
+
+            // Step 2
+            // Ensure all of your changes are committed and pushed to GitHub
+            // Send your repository URL to your instructor}
 
 
-
-
-        // Prompt the user for their age:
-        // 1: Student (17 years or younger) - receives a 10% discount
-        // 2: Seniors (65 years or older) - receives a 20% discount
-        // Display the cost of the sandwich on the screen
-
-
-
-
-
-
-
-        // Step 2
-        // Ensure all of your changes are committed and pushed to GitHub
-        // Send your repository URL to your instructor}
-
-
-
-
-
-
-
-
-
-
-
+        }
     }
 }
